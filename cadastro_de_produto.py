@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
-"""Cadastro de produto"""
-__version__ = "0.1.0"
+"""Cadastro de produto usando dicionários
+exercício do curso de Python Base da LinuxTips
+Professor Bruno Rocha
+"""
 
+__version__ = "0.1.0"
+__author__ = "Rogerio"
+
+#Importado sem uso, apenas para explicação
 from pprint import pprint
 
 produto = {

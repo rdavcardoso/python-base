@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Exibe relatório de crianças agrupadas por sala
 que frequentam cada uma das atividades.
+Script feito na aula do curso Python Base da
+Linux Tips, Professor Bruno Rocha
 """
+
 __version__ = "0.1.0"
 __author__ = "Rogerio"
 
@@ -20,7 +23,6 @@ atividades = [
 ]
 
 #Listar alunos em cada atividade por sala
-
 for nome_atividade, atividade in atividades:
 
     atividade_sala1 = []
