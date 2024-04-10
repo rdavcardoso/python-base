@@ -55,10 +55,10 @@ if not args:
              "mul: multiplicação\n"
              "div: divisão\n")     
 
-elif len(sys.argv) == 4:
-    oper = sys.argv[1]
-    n1 = int(sys.argv[2])
-    n2 = int(sys.argv[3])
+elif len(args) == 3:
+    oper = args[0]
+    n1 = int(args[1])
+    n2 = int(args[2])
     operacoes = {
         "sum": (n1 + n2),
         "sub": (n1 - n2),
