@@ -24,9 +24,12 @@ operação: sum
 n1: 5
 n2: 4
 9
-"""
-__version__ = "0.1.0"
 
+Os resultados serão salvos em `prefixcalc.log`
+"""
+__version__ = "0.1.1"
+
+import os
 import sys
 
 arguments = sys.argv[1:]
@@ -63,5 +66,11 @@ elif operation == "mul":
     result = n1 * n2
 elif operation == "div":
     result = n1 / n2
+
+path = os.curdir
+filepath = os.path.join(path, "prefixcalc.log")
+
+with open(filepath, "a") as file_:
+    file_.write(f"{operation}, {n1}, {n2} = {result}\n")
 
 print(f"O resultado é {result}")

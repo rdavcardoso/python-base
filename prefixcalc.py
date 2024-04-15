@@ -1,4 +1,4 @@
-"""Calculadora infix
+"""Calculadora prefix
 
 Versão feita sem auxílio.
 
@@ -30,6 +30,7 @@ __version__ = "0.1.0"
 __author__ = "Rogerio Cardoso"
 __license__ = "Unlicensed"
 
+import os
 import sys
 
 args = sys.argv[1:]
@@ -40,13 +41,20 @@ if not args:
     n2 = int(input("n2: "))
     #TODO fazer de uma forma que não precise repetir os dicts
     operacoes = {
-        "sum": (n1 + n2),
-        "sub": (n1 - n2),
-        "mul": (n1 * n2),
-        "div": (n1 / n2),
-    }
+        "sum": [(n1 + n2), "+"],
+        "sub": [(n1 - n2), "-"],
+        "mul": [(n1 * n2), "*"],
+        "div": [(n1 / n2), "/"],
+        }
     if oper in operacoes:
-        print(operacoes[oper])
+            result = operacoes[oper][0]
+            oper_simb = operacoes[oper][1]
+            print(f"{n1} {oper_simb} {n2} = {result}")
+            path = os.curdir
+            filepath = os.path.join(path, "prefixcalc4.log")
+    
+            with open(filepath, "a") as file_:
+                file_.write(f"{n1} {oper_simb} {n2} = {result}\n")
     else:
          print("operação não suportada\n"
              "tente uma das operções suportadas\n"
@@ -60,13 +68,22 @@ elif len(args) == 3:
     n1 = int(args[1])
     n2 = int(args[2])
     operacoes = {
-        "sum": (n1 + n2),
-        "sub": (n1 - n2),
-        "mul": (n1 * n2),
-        "div": (n1 / n2),
+        "sum": [(n1 + n2), "+"],
+        "sub": [(n1 - n2), "-"],
+        "mul": [(n1 * n2), "*"],
+        "div": [(n1 / n2), "/"],
         }
+    
     if oper in operacoes:
-        print(operacoes[oper])
+        result = operacoes[oper][0]
+        oper_simb = operacoes[oper][1]
+        print(f"{n1} {oper_simb} {n2} = {result}")
+        path = os.curdir
+        filepath = os.path.join(path, "prefixcalc4.log")
+
+        with open(filepath, "a") as file_:
+            file_.write(f"{n1} {oper_simb} {n2} = {result}\n")
+            
     else:
         print("operação não suportada\n"
             "tente uma das operções suportadas\n"
