@@ -1,0 +1,4 @@
+Minha Primeira Nota	tech	Primeira nota tech
+Minha Segunda Nota	geral	Primeira nota geral
+Minha Terceira Nota	tech	Segunda nota tech
+Minha Quarta Nota	geral	Segunda nota geral
