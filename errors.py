@@ -3,18 +3,20 @@
 import sys
 import os
 
-if os.path.exists("names.txt"):
-    print("O arquivo existe")
-    input("...") # Race Condition
+# EAFP - Easy to Ask Forgiviness than Permission
+try:
     names = open("names.txt").readlines()
-else:
-    print("File 'names.txt' not found")
+except FileNotFoundError as e:
+    print(f"{str(e)}")
     sys.exit(1)
-
-
-#LBYL - Look Before You Leap
-if len(names) >= 3:
-    print(names[2])
+    # TODO: usar retry
 else:
-    print("Missing name in the list")
+    print("Sucesso")
+finally:
+    print("Execute isso sempre!")
+
+try:
+    print(names[2])
+except:
+    print("[Error] Missing name in the list")
     sys.exit(1)
