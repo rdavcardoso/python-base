@@ -41,7 +41,11 @@ if arguments[0] == "read":
             
 
 if arguments[0] == "new":
-    title = arguments[1] #TODO: tratar exception
+    try:
+        title = arguments[1]
+    except IndexError:
+        print("You must specify a title")
+        sys.exit(1)
     text = [
         f"{title}",
         input("Tag: ").strip(),
