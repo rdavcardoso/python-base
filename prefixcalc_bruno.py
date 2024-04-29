@@ -31,6 +31,18 @@ __version__ = "0.1.1"
 
 import os
 import sys
+import logging
+
+log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
+log = logging.Logger("logs.py", log_level)
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+fmt = logging.Formatter(
+    '%(asctime)s  %(name)s  %(levelname)s  l:%(lineno)d' 
+    'f:%(filename)s: %(message)s'
+)
+ch.setFormatter(fmt)
+log.addHandler(ch)
 
 arguments = sys.argv[1:]
 
@@ -81,6 +93,5 @@ try:
     with open(filepath, "a") as file_:
         file_.write(f"{operation}, {n1}, {n2} = {result}\n")
 except PermissionError as e:
-    # TODO: logging
-    print(str(e))
+    log.error("Erro %s", str(e))
     sys.exit(1)
